@@ -75,44 +75,83 @@
 							    <div class="layui-form-mid layui-word-aux search">模糊搜索</div>
 							</div>
 						</form>
-						<table class="layui-table" lay-skin="line">
-						  	<colgroup>
-							    <col >
-							    <col >
-							    <col>
-							    <col>
-							    <col>
-							    <col >
-						  	</colgroup>
-						  	<thead>
-							    <tr>
-							      	<th><div>稿件ID<i class="down" data-type="0"></i></div></th>
-							      	<th><div>投稿时间<i class="down" data-type="0"></i></div></th>
-							      	<th><div>稿件标题<i class="down" data-type="0"></i></div></th>
-							      	<th><div>拟投学科<i class="down" data-type="0"></i></div></th>
-							      	<th><div>当前状态<i class="down" data-type="0"></i></div></th>
-							      	<th>更多</th>
-							    </tr> 
-						  	</thead>
-						  	<tbody>
-							    <tr>
-							      	<td>P-2016-013-14-07-14</td>
-							      	<td>2016-11-29</td>
-							      	<td>人生就像是一场修行</td>
-							      	<td>人生就像是一场修行</td>
-							      	<td>人生就像是一场修行</td>
-							      	<td><a>编辑</a><span>|</span><a>删除</a></td>
-							    </tr>
-							    <tr>
-							      	<td>P-2016-013-14-07-14</td>
-							      	<td>2016-11-29</td>
-							      	<td>人生就像是一场修行</td>
-							      	<td>人生就像是一场修行</td>
-							      	<td>人生就像是一场修行</td>
-							      	<td><a>编辑</a><span>|</span><a>删除</a></td>
-							    </tr>
-						  	</tbody>
-						</table>
+						<div class="author-list">
+							<div class="lsttle">已添加作者 <a class="right">立即邀请</a></div>
+							<table class="layui-table" lay-skin="line">
+							  	<colgroup>
+								    <col width="80">
+								    <col >
+								    <col>
+								    <col>
+								    <col>
+								    <col >
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th><input class="all" type="checkbox" ></th>
+								      	<th>姓名</th>
+								      	<th>性别</th>
+								      	<th>电子邮箱</th>
+								      	<th>工作单位</th>
+								      	<th>操作</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td><input class="iterm" type="checkbox" ></td>
+								      	<td>2016-11-29</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td><a>删除</a></td>
+								    </tr>
+								    <tr>
+								      	<td><input class="iterm" type="checkbox" ></td>
+								      	<td>2016-11-29</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td><a>删除</a></td>
+								    </tr>
+							  	</tbody>
+							</table>
+							<div class="lsttle">已邀请作者</div>
+							<table class="layui-table" lay-skin="line">
+							  	<colgroup>
+								    <col >
+								    <col>
+								    <col>
+								    <col>
+								    <col >
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th>姓名</th>
+								      	<th>性别</th>
+								      	<th>电子邮箱</th>
+								      	<th>工作单位</th>
+								      	<th>操作</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td>2016-11-29</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td><a>删除</a></td>
+								    </tr>
+								    <tr>
+								      	<td>2016-11-29</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td><a>删除</a></td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						
 						
 					</div>
 				</div>
@@ -134,21 +173,19 @@
 				$(elem).parent().addClass('active');
 				
 			});
-			$('.layui-table thead th i').bind('click',function(e){
+			$('.layui-table thead th .all').bind('click',function(e){
 				var elem = e.target;
-				var type = +$(elem).attr('data-type');
-				if(type==0){
-					$(elem).attr('data-type','1');
-					$(elem).removeClass('down');
-					$(elem).addClass('up');
-				}else{
-					$(elem).attr('data-type','0');
-					$(elem).removeClass('up');
-					$(elem).addClass('down');
-				}
-				
+				if(elem.checked){   
+			    	$('.layui-table tbody .iterm').prop("checked", true);  
+			    }else{   
+					$('.layui-table tbody .iterm').prop("checked", false);
+			    } 
 			});
-			
+			/*$('.layui-table tbody input[type=checkbox]').bind('click',function(e){
+				var elem = e.target;
+				var allNum = $('.layui-table tbody input[type=checkbox]').length;
+				
+			});*/
 		})
 	</script>
 

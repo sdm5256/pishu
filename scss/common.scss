@@ -729,6 +729,31 @@ h5 {
                        }
                     }
                 }
+                .author-list{
+                    max-width: 1000px;
+                    .lsttle{
+                        background: #f9f9f9;
+                        height: 40px;
+                        line-height: 40px;
+                        padding: 0px 20px;
+                        a{
+                            cursor: pointer;
+                            color: $bgcolor;
+                        }
+                    }
+                    .layui-table{
+                        td,th{
+                            text-align: center;
+                            vertical-align: middle;
+                        }
+                        td{
+                            a:hover{
+                                cursor: pointer;
+                                color: $bgcolor;
+                            }
+                        }
+                    }
+                }
             }  
         }
     }
