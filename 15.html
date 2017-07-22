@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>皮书</title>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/common.css" media="all">
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="nav-list left">
+			<div class="logo">
+				<img src="imgs/logo-text.png"/>
+			</div>
+			<div class="title">新建稿件</div>
+			<ul class="lists">
+				<li class="active"><a>新建稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li ><a>未完成稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>稿件列表</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+			<div class="title">用户中心</div>
+			<ul class="lists">
+				<li><a>个人信息设置</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>修改登录密码</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>使用说明</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>消息中心</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+		</div>
+		<div class="nav-content">
+			<div class="nav-header">
+				<form class="layui-form" action="">
+					<div class="layui-form-item lf">
+						<select name="" lay-filter="Select" >
+						  	<option value="020">作者</option>
+						  	<option value="010">编辑</option>
+						</select>
+					</div>
+					<div class="rg right">
+						<div class="rg-icon">
+							<!--有通知时添加   class= noticed -->
+							<a class="notice"></a><a class="personal"></a>
+						</div>
+						<div class="login-msg">
+							<a>作者作者</a><span>|</span><a>注销</a>
+						</div>
+					</div>
+				</form>   
+			</div>
+			<div class="main">
+				<div class="title">稿件详情<button class="layui-btn right">提交修改稿</button></div>
+				<div class="main-content">
+					<div class="manuscript-det">
+						<div class="iterm">
+							<div class="iterm-title">稿件下载 <a class="right">历史文件</a></div>
+							<table class="layui-table " lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th>上传时间</th>
+								      	<th>文件类型</th>
+								      	<th>文件名称</th>
+								      	<th>文件大小</th>
+								      	<th>操作</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td>2016-11-29</td>
+								      	<td>txt</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>3M</td>
+								      	<td><a>下载</a></td>
+								    </tr>
+								    <tr>
+								      	<td>2016-11-29</td>
+								      	<td>txt</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>3M</td>
+								      	<td><a>下载</a></td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						<div class="iterm">
+							<div class="iterm-title">稿件详情</div>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col width="110"><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="5">稿件详情</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td >学科分类</td>
+								      	<td colspan="4">历史学</td>
+								    </tr>
+								    <tr>
+								      	<td >来搞方式</td>
+								      	<td colspan="4">自由投稿</td>
+								    </tr>
+								    <tr>
+								      	<td >稿件类型</td>
+								      	<td colspan="4">单篇稿件</td>
+								    </tr>
+								    <tr>
+								      	<td >稿件标题</td>
+								      	<td colspan="4">历史学</td>
+								    </tr>
+								    <tr>
+								      	<td >稿件副标题</td>
+								      	<td colspan="4">历史学</td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						<div class="iterm">
+							<div class="iterm-title">作者信息</div>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="6">第一作者(通讯作者)</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td>姓名：找大哟</td>
+								      	<td>性别：男</td>
+								      	<td>职业：IT男</td>
+								      	<td>职称：高级工程师</td>
+								      	<td>最高学历：小学</td>
+								      	<td>邮箱：12345678901@163.com</td>
+								    </tr>
+								    <tr>
+								      	<td>工作单位</td>
+								      	<td colspan="5">社会科学文献出版社</td>
+								    </tr>
+								    <tr>
+								      	<td>稿件贡献度</td>
+								      	<td colspan="5">社会科学文献出版社社会科学文献出版社社会科学文献出版社社会科学文献出版社</td>
+								    </tr>
+							  	</tbody>
+							</table>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="6">第二作者(通讯作者)</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td>姓名：找大哟</td>
+								      	<td>性别：男</td>
+								      	<td>职业：IT男</td>
+								      	<td>职称：高级工程师</td>
+								      	<td>最高学历：小学</td>
+								      	<td>邮箱：12345678901@163.com</td>
+								    </tr>
+								    <tr>
+								      	<td>工作单位</td>
+								      	<td colspan="5">社会科学文献出版社</td>
+								    </tr>
+								    <tr>
+								      	<td>稿件贡献度</td>
+								      	<td colspan="5">社会科学文献出版社社会科学文献出版社社会科学文献出版社社会科学文献出版社</td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						<div class="iterm">
+							<div class="iterm-title">关键词和摘要</div>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col width="110"><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="5">中文关键词和摘要</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td >中文关键词</td>
+								      	<td colspan="4">历史学</td>
+								    </tr>
+								    <tr>
+								      	<td >中文摘要</td>
+								      	<td colspan="4">自由投稿</td>
+								    </tr>
+							  	</tbody>
+							</table>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col width="110"><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="5">英文关键词和摘要</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td >英文关键词</td>
+								      	<td colspan="4">历史学</td>
+								    </tr>
+								    <tr>
+								      	<td >英文摘要</td>
+								      	<td colspan="4">自由投稿</td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						<div class="iterm">
+							<div class="iterm-title">稿件创新点和自评</div>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="5">稿件创新点</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td >中文关键词中文关键词中文关键词中文关键词中文关键词中文关键词中文关键词</td>
+								    </tr>
+							  	</tbody>
+							</table>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="5">稿件自评</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td >英文关键自由投稿自由投稿自由投稿自由投稿自由投稿自由投稿自由投稿词英文关键自由投稿自由投稿自由投稿自由投稿自由投稿自由投稿自由投稿词英文关键自由投稿自由投稿自由投稿自由投稿自由投稿自由投稿自由投稿词</td>	
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						<div class="iterm">
+							<div class="iterm-title">参考文献</div>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="5">参考文献</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td >中文关，键词中，文关键词中文关键词中文关键词中文关键词中文关键词中文关键词</td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						<div class="iterm">
+							<div class="iterm-title">基金来源</div>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col width="110"><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="5">基金来源1</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td >基金号</td>
+								      	<td colspan="4">历史学</td>
+								    </tr>
+								    <tr>
+								      	<td >基金名称</td>
+								      	<td colspan="4">自由投稿</td>
+								    </tr>
+							  	</tbody>
+							</table>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col width="110"><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="5">基金来源2</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td >基金号</td>
+								      	<td colspan="4">历史学</td>
+								    </tr>
+								    <tr>
+								      	<td >基金名称</td>
+								      	<td colspan="4">自由投稿</td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						<div class="iterm">
+							<div class="iterm-title">评审人</div>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="6">建议评审人一</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td>姓名：找大哟</td>
+								      	<td>性别：男</td>
+								      	<td>职业：IT男</td>
+								      	<td>职称：高级工程师</td>
+								      	<td>最高学历：小学</td>
+								      	<td>邮箱：12345678901@163.com</td>
+								    </tr>
+								    <tr>
+								      	<td>工作单位</td>
+								      	<td colspan="5">社会科学文献出版社</td>
+								    </tr>
+								    <tr>
+								      	<td>稿件贡献度</td>
+								      	<td colspan="5">社会科学文献出版社社会科学文献出版社社会科学文献出版社社会科学文献出版社</td>
+								    </tr>
+							  	</tbody>
+							</table>
+							<table class="layui-table detail" lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th colspan="6">反对评审人一</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td>姓名：找大哟</td>
+								      	<td>性别：男</td>
+								      	<td>职业：IT男</td>
+								      	<td>职称：高级工程师</td>
+								      	<td>最高学历：小学</td>
+								      	<td>邮箱：12345678901@163.com</td>
+								    </tr>
+								    <tr>
+								      	<td>工作单位</td>
+								      	<td colspan="5">社会科学文献出版社</td>
+								    </tr>
+								    <tr>
+								      	<td>稿件贡献度</td>
+								      	<td colspan="5">社会科学文献出版社社会科学文献出版社社会科学文献出版社社会科学文献出版社</td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+	<script src="layui/layui.js"></script>
+	<script>
+		layui.use(['jquery','element', 'laypage', 'layer','form','laydate'], function() {
+			var $ = layui.jquery,
+				laypage = layui.laypage,
+				layer = layui.layer,
+				laydate = layui.laydate,
+				form = layui.form(),
+				element = layui.element();
+			$('.lists li').bind('click',function(e){
+				var elem = e.target;
+				$('.lists li').removeClass('active');
+				$(elem).parent().addClass('active');
+				
+			});
+			$('.layui-table thead th i').bind('click',function(e){
+				var elem = e.target;
+				var type = +$(elem).attr('data-type');
+				if(type==0){
+					$(elem).attr('data-type','1');
+					$(elem).removeClass('down');
+					$(elem).addClass('up');
+				}else{
+					$(elem).attr('data-type','0');
+					$(elem).removeClass('up');
+					$(elem).addClass('down');
+				}
+				
+			});
+			form.on("select(Select)", function(data){
+				console.log(data.elem); //得到select原始DOM对象
+				console.log(data.value); //得到被选中的值
+			});
+			//监听提交
+			form.on('submit(formDemo)', function(data){
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			});
+		})
+	</script>
+
+</html>

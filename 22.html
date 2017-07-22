@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>皮书</title>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/common.css" media="all">
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="nav-list left">
+			<div class="logo">
+				<img src="imgs/logo-text.png"/>
+			</div>
+			<div class="title">稿件管理</div>
+			<ul class="lists">
+				<li><a>稿件列表</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+			<div class="title">稿件管理</div>
+			<ul class="lists">
+				<li class="active"><a>课题列表</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>邀请作者</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+			<div class="title">用户中心</div>
+			<ul class="lists">
+				<li><a>个人信息设置</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>修改登录密码</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>使用说明</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>消息中心</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+		</div>
+		<div class="nav-content">
+			<div class="nav-header">
+				<form class="layui-form" action="">
+					<div class="layui-form-item lf">
+						<select name="" >
+						  	<option value="020">编辑</option>
+						  	<option value="010">作者</option>
+						</select>
+					</div>
+					<div class="rg right">
+						<div class="rg-icon">
+							<!--有通知时添加   class= noticed -->
+							<a class="notice"></a><a class="personal"></a>
+						</div>
+						<div class="login-msg">
+							<a>作者作者</a><span>|</span><a>注销</a>
+						</div>
+					</div>
+				</form>   
+			</div>
+			<div class="main">
+				<div class="title">课题列表</div>
+				<div class="main-content">
+					<div class="topic">
+						<form class="layui-form release" action="">
+							<div class="layui-form-item">
+							    <label class="layui-form-label">课题名称</label>
+							    <div class="layui-input-block">
+							      	<input type="text" name="title" required  lay-verify="required" placeholder="请输入课题名称" autocomplete="off" class="layui-input">
+							    </div>
+							</div>
+							<div class="layui-form-item">
+							    <label class="layui-form-label">课题要求</label>
+							    <div class="layui-input-block">
+							      	<textarea name="requirement" placeholder="请输入课题要求" required  lay-verify="required" class="layui-textarea"></textarea>
+							    </div>
+							</div>
+							<div class="layui-form-item submit-btn">
+							    <div class="layui-input-block">
+							      <button class="layui-btn layui-btn-primary btn1" data-type="0" lay-submit lay-filter="submit">暂存课题</button>
+							      <button class="layui-btn btn2" data-type="1" lay-submit lay-filter="submit">发布课题</button>
+							    </div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="temporary" class="temporary">
+			<img src="imgs/ok.png"/>
+			<p class="tiptext">暂存成功</p>
+			<div class="btnlist">
+				<a class="returnlist">返回列表</a><a class="continu">继续修改</a>
+			</div>
+		</div>
+	</body>
+	<script src="layui/layui.js"></script>
+	<script>
+		layui.use(['jquery','element', 'laypage', 'layer','form','laydate'], function() {
+			var $ = layui.jquery,
+				laypage = layui.laypage,
+				layer = layui.layer,
+				laydate = layui.laydate,
+				form = layui.form(),
+				element = layui.element();
+			$('.lists li').bind('click',function(e){
+				var elem = e.target;
+				$('.lists li').removeClass('active');
+				$(elem).parent().addClass('active');
+				
+			});
+			//监听提交
+			form.on('submit(submit)', function(data){
+				var type = +$(data.elem).attr('data-type');
+				if(type==0){ 
+					$('#temporary .tiptext').text('暂存成功');
+					$('#temporary .continu').show();
+					tips();//暂存	
+				}else{
+					$('#temporary .tiptext').text('发布成功');
+					$('#temporary .continu').hide();
+					tips();//提交
+				}
+			    console.log(JSON.stringify(data.field));
+			    return false;
+			});
+			//暂存 提示
+			function tips(){
+				layer.open({
+					title :'提示',
+					type: 1,
+					area:  ['610px', '420px'],
+					content: $('#temporary')
+				});
+			}
+			//继续修改 关闭弹窗
+			$('.temporary .continu').bind('click',function(){
+				layer.closeAll();
+			});
+		})
+	</script>
+
+</html>

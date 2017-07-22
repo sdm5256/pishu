@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>皮书</title>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/common.css" media="all">
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="nav-list left">
+			<div class="logo">
+				<img src="imgs/logo-text.png"/>
+			</div>
+			<div class="title">稿件管理</div>
+			<ul class="lists">
+				<li><a>新建稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li ><a>未完成稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li class="active"><a>稿件列表</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+			<div class="title">用户中心</div>
+			<ul class="lists">
+				<li><a>个人信息设置</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>修改登录密码</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>使用说明</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>消息中心</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+		</div>
+		<div class="nav-content">
+			<div class="nav-header">
+				<form class="layui-form" action="">
+					<div class="layui-form-item lf">
+						<select name="" >
+						  	<option value="020">作者</option>
+						  	<option value="010">编辑</option>
+						</select>
+					</div>
+					<div class="rg right">
+						<div class="rg-icon">
+							<!--有通知时添加   class= noticed -->
+							<a class="notice"></a><a class="personal"></a>
+						</div>
+						<div class="login-msg">
+							<a>作者作者</a><span>|</span><a>注销</a>
+						</div>
+					</div>
+				</form>   
+			</div>
+			<div class="main">
+				<div class="title">稿件列表</div>
+				<div class="main-content">
+					<div class="unfinish">
+						<form class="layui-form" action="">
+							<div class="layui-form-item">
+							    <label class="layui-form-label">筛选范围</label>
+							    <div class="layui-input-block">
+							      	<select name="" lay-verify="required">
+								        <option value=""></option>
+								        <option value="0">稿件标题</option>
+								        <option value="1">拟投学科</option>
+								        <option value="2">当前状态</option>
+							      	</select>
+							    </div>
+							</div>
+							<div class="layui-form-item">
+							    <label class="layui-form-label">关键词</label>
+							    <div class="layui-input-inline">
+							      	<input type="text" name="password"  placeholder="请输入关键词" autocomplete="off" class="layui-input">
+							    </div>
+							    <div class="layui-form-mid layui-word-aux">立即搜索</div>
+							</div>
+						</form>
+						<table class="layui-table" lay-skin="line">
+						  	<colgroup>
+							    <col >
+							    <col >
+							    <col>
+							    <col>
+							    <col>
+							    <col >
+						  	</colgroup>
+						  	<thead>
+							    <tr>
+							      	<th>稿件ID<i class="down" data-type="0"></i></th>
+							      	<th>投稿时间<i class="down" data-type="0"></i></th>
+							      	<th>稿件标题<i class="down" data-type="0"></i></th>
+							      	<th>拟投学科<i class="down" data-type="0"></i></th>
+							      	<th>当前状态<i class="down" data-type="0"></i></th>
+							      	<th>更多</th>
+							    </tr> 
+						  	</thead>
+						  	<tbody>
+							    <tr>
+							      	<td>P-2016-013-14-07-14</td>
+							      	<td>2016-11-29</td>
+							      	<td>人生就像是一场修行</td>
+							      	<td>人生就像是一场修行</td>
+							      	<td>人生就像是一场修行</td>
+							      	<td><a>编辑</a><span>|</span><a>删除</a></td>
+							    </tr>
+							    <tr>
+							      	<td>P-2016-013-14-07-14</td>
+							      	<td>2016-11-29</td>
+							      	<td>人生就像是一场修行</td>
+							      	<td>人生就像是一场修行</td>
+							      	<td>人生就像是一场修行</td>
+							      	<td><a>编辑</a><span>|</span><a>删除</a></td>
+							    </tr>
+						  	</tbody>
+						</table>
+						<div class="page ">
+							<div id="page-list"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="layui/layui.js"></script>
+	<script>
+		layui.use(['jquery','element', 'laypage', 'layer','form','laydate'], function() {
+			var $ = layui.jquery,
+				laypage = layui.laypage,
+				layer = layui.layer,
+				laydate = layui.laydate,
+				form = layui.form(),
+				element = layui.element();
+			$('.lists li').bind('click',function(e){
+				var elem = e.target;
+				$('.lists li').removeClass('active');
+				$(elem).parent().addClass('active');
+				
+			});
+			$('.layui-table thead th i').bind('click',function(e){
+				var elem = e.target;
+				var type = +$(elem).attr('data-type');
+				if(type==0){
+					$(elem).attr('data-type','1');
+					$(elem).removeClass('down');
+					$(elem).addClass('up');
+				}else{
+					$(elem).attr('data-type','0');
+					$(elem).removeClass('up');
+					$(elem).addClass('down');
+				}
+				
+			});
+			//页码
+			laypage({
+				cont: 'page-list',
+				pages: 100, //总页数
+				skin: '#3875c2',
+				skip: true,
+				first: false,
+				last: false,
+				jump: function(obj, first) {//页码跳转
+					if(!first) {
+						//layer.msg('第 '+ obj.curr +' 页');
+					}
+				}
+			});
+		})
+	</script>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>皮书</title>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/common.css" media="all">
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="nav-list left">
+			<div class="logo">
+				<img src="imgs/logo-text.png"/>
+			</div>
+			<div class="title">新建稿件</div>
+			<ul class="lists">
+				<li class="active"><a>新建稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li ><a>未完成稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>稿件列表</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+			<div class="title">用户中心</div>
+			<ul class="lists">
+				<li><a>个人信息设置</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>修改登录密码</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>使用说明</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>消息中心</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+		</div>
+		<div class="nav-content">
+			<div class="nav-header">
+				<form class="layui-form" action="">
+					<div class="layui-form-item lf">
+						<select name="" lay-filter="Select" >
+						  	<option value="020">作者</option>
+						  	<option value="010">编辑</option>
+						</select>
+					</div>
+					<div class="rg right">
+						<div class="rg-icon">
+							<!--有通知时添加   class= noticed -->
+							<a class="notice"></a><a class="personal"></a>
+						</div>
+						<div class="login-msg">
+							<a>作者作者</a><span>|</span><a>注销</a>
+						</div>
+					</div>
+				</form>   
+			</div>
+			<div class="main">
+				<div class="title">稿件状态</div>
+				<div class="main-content">
+					<div class="status-record">
+						<div class="status-img">
+							<img src="imgs/status1.png">
+							<!-- 状态 2、3、4、5
+							<img src="imgs/status2.png">
+							<img src="imgs/status3.png">
+							<img src="imgs/status4.png">
+							<img src="imgs/status5.png">-->
+						</div>
+						<ul class="status-text">
+							<!--激活状态  li 添加  class  active  -->
+							<li class="active tl1 left">
+								<div>作者投稿</div><p>2017-07-21</p>
+							</li>
+							<li class="tl2 left"><div >编辑审稿</div><p >2017-07-21</p></li>
+							<li class="tl3 left"><div >稿件录用</div><p>2017-07-21</p></li>
+							<li class="tl4 left"><div >优先出版</div><p>2017-07-21</p></li>
+							<li class="tl5 left"><div >数据出版</div><p>2017-07-21</></li>
+						</ul>
+						<div class="record-title">
+							稿件下载  
+							<div class="right handle">
+								<a >查看稿件详情</a> <a >提交修改稿</a><span class="down" dataId="recordList " type="0">展开</span>
+							</div>
+						</div>
+						<div id="recordList" class="record-list">
+							<table class="layui-table " lay-skin="line">
+							  	<colgroup>
+								    <col ><col > <col><col><col>
+							  	</colgroup>
+							  	<thead>
+								    <tr>
+								      	<th>上传时间</th>
+								      	<th>文件类型</th>
+								      	<th>文件名称</th>
+								      	<th>文件大小</th>
+								      	<th>操作</th>
+								    </tr> 
+							  	</thead>
+							  	<tbody>
+								    <tr>
+								      	<td>2016-11-29</td>
+								      	<td>txt</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>3M</td>
+								      	<td><a>下载</a></td>
+								    </tr>
+								    <tr>
+								      	<td>2016-11-29</td>
+								      	<td>txt</td>
+								      	<td>人生就像是一场修行</td>
+								      	<td>3M</td>
+								      	<td><a>下载</a></td>
+								    </tr>
+							  	</tbody>
+							</table>
+						</div>
+						<div class="interval"></div>
+						<div class="record-title">
+							主编返回作者修改(2017-7-21 14:00:01)  
+							<div class="right handle">
+								<span class="down" dataId="editOpinion" type="0" >展开</span>
+							</div>
+						</div>
+						<div id="editOpinion" class="edit-opinion">
+							<p>【编辑意见】</p>
+							<p>（1）简要描述论文的研究内容和意义，并作出评价。对于其比较好的部分，要给于肯定。</p>
+							<p>（2）针对文章中的内容和结果，指出其具体的不足之处，并谈谈你的看法。文章的不足之处有三种层次：第一，论文不正确或有重大失误；第二，论文缺乏重要的结果；第三，论文的结果不够完善。</p>
+							<p>（3）最后，给出你的综合评价，接受，修改，还是拒绝。</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+	<script src="layui/layui.js"></script>
+	<script>
+		layui.use(['jquery','element', 'laypage', 'layer','form','laydate'], function() {
+			var $ = layui.jquery,
+				laypage = layui.laypage,
+				layer = layui.layer,
+				laydate = layui.laydate,
+				form = layui.form(),
+				element = layui.element();
+			$('.lists li').bind('click',function(e){
+				var elem = e.target;
+				$('.lists li').removeClass('active');
+				$(elem).parent().addClass('active');
+				
+			});
+			$('.record-title .handle span').bind('click',function(e){
+				var elem = e.target;
+				var elemid = $(elem).attr('dataId');
+				var type = +$(elem).attr('type');
+				if(type==0){
+					$(elem).attr('type','1');
+					$(elem).attr('class','up');
+					$("#"+elemid).slideDown();
+				}else{
+					$(elem).attr('type','0');
+					$(elem).attr('class','down');
+					$("#"+elemid).slideUp();
+				}
+			});
+			
+		})
+	</script>
+
+</html>

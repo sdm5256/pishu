@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>皮书</title>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/common.css" media="all">
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="nav-list left">
+			<div class="logo">
+				<img src="imgs/logo-text.png"/>
+			</div>
+			<div class="title">新建稿件</div>
+			<ul class="lists">
+				<li class="active"><a>新建稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li ><a>未完成稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>稿件列表</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+			<div class="title">用户中心</div>
+			<ul class="lists">
+				<li><a>个人信息设置</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>修改登录密码</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>使用说明</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>消息中心</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+		</div>
+		<div class="nav-content">
+			<div class="nav-header">
+				<form class="layui-form" action="">
+					<div class="layui-form-item lf">
+						<select name="" lay-filter="Select" >
+						  	<option value="020">作者</option>
+						  	<option value="010">编辑</option>
+						</select>
+					</div>
+					<div class="rg right">
+						<div class="rg-icon">
+							<!--有通知时添加   class= noticed -->
+							<a class="notice"></a><a class="personal"></a>
+						</div>
+						<div class="login-msg">
+							<a>作者作者</a><span>|</span><a>注销</a>
+						</div>
+					</div>
+				</form>   
+			</div>
+			<div class="main">
+				<div class="title">新建稿件</div>
+				<div class="main-content">
+					<div class="new-manuscript">
+						<table class="layui-table" lay-skin="row">
+						  	<colgroup>
+							    <col >
+							    <col width="300">   
+						  	</colgroup>
+						  	<tbody>
+							    <tr>
+							      	<td class="new-left" >
+							      		<form class="layui-form" action="">
+											<div id="manu-title1" class="iterm">
+												<div class="text-title">拟投学科</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">学科分类</label>
+												    <div class="layui-input-block">
+													    <select name="subject" lay-verify="required">
+													        <option value="">请选择(必填)</option>
+													        <option value="0">马克思主义</option>
+													        <option value="1">哲学类</option>
+													        <option value="2">宗教类</option>
+													        <option value="3">心理学类</option>
+													        <option value="4">社会科学总论</option>
+													        <option value="4">社会学社会工作与社会保障类</option>
+													        <option value="4">政治学与公共管理类</option>
+													        <option value="4">法学类</option>
+													        <option value="4">民族问题研究</option>
+													        <option value="4">国际问题类</option>
+													        <option value="4">中共党史党建</option>
+													        <option value="4">经济管理类</option>
+													        <option value="4">统计学</option>
+													        <option value="4">人口学</option>
+													        <option value="4">文化传媒类</option>
+													        <option value="4">教育类</option>
+													        <option value="4">信息及档案管理类</option>
+													        <option value="4">语言类</option>
+													        <option value="4">文学类</option>
+													        <option value="4">艺术类</option>
+													        <option value="4">历史地理类</option>
+													        <option value="4">考古类</option>
+													        <option value="4">其他</option>
+													    </select>
+												    </div>
+												</div>
+											</div>
+											<div id="manu-title2" class="iterm">
+												<div class="text-title">稿件标题</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">稿件标题</label>
+												    <div class="layui-input-block">
+												      	<input type="text" name="title" required  lay-verify="required" placeholder="请输入稿件标题(必填)" autocomplete="off" class="layui-input">
+												    </div>
+												</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">稿件副标题</label>
+												    <div class="layui-input-block">
+												      	<input type="text" name="vice-title" required  lay-verify="required" placeholder="请输入稿件副标题(必填)" autocomplete="off" class="layui-input">
+												    </div>
+												</div>
+											</div>
+											<div id="manu-title3" class="iterm">
+												<div class="text-title">中英文关键词</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">中文关键词</label>
+												    <div class="layui-input-block">
+												      	<input type="text" name="ch-keyword" required  lay-verify="required" placeholder="请输入中文关键词(必填)" autocomplete="off" class="layui-input">
+												    </div>
+												</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">英文关键词</label>
+												    <div class="layui-input-block">
+												      	<input type="text" name="en-keyword" required  lay-verify="required" placeholder="请输入英文关键词(必填)" autocomplete="off" class="layui-input">
+												    </div>
+												</div>
+											</div>
+											<div id="manu-title4" class="iterm">
+												<div class="text-title">中英文摘要</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">中文摘要</label>
+												    <div class="layui-input-block">
+												      	<textarea name="ch-abstract" placeholder="中文摘要(必填)" required  lay-verify="required" class="layui-textarea"></textarea>
+												    </div>
+												</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">英文摘要</label>
+												    <div class="layui-input-block">
+												      	<textarea name="en-abstract" placeholder="英文摘要(必填)" required  lay-verify="required" class="layui-textarea"></textarea>
+												    </div>
+												</div>
+											</div>
+											<div id="manu-title5" class="iterm">
+												<div class="text-title">基金信息</div>
+												<div id="fund">
+													<div class="layui-form-item">
+													    <label class="layui-form-label">基金号1</label>
+													    <div class="layui-input-block">
+													      	<input type="text" name="fundNum1"  placeholder="请输入基金号" autocomplete="off" class="layui-input">
+													    </div>
+													</div>
+													<div class="layui-form-item">
+													    <label class="layui-form-label">基金名称1</label>
+													    <div class="layui-input-block">
+													      	<input type="text" name="fundName1" placeholder="请输入基金名称" autocomplete="off" class="layui-input">
+													    </div>
+													</div>
+												</div>
+												<div class="addfund">+新加基金来源</div>
+											</div>
+											<div id="manu-title6" class="iterm">
+												<div class="text-title">稿件创新点与自评</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">稿件创新点</label>
+												    <div class="layui-input-block">
+												      	<textarea name="innovate" placeholder="稿件创新点(必填)" required lay-verify="required" class="layui-textarea"></textarea>
+												    </div>
+												</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">稿件自评</label>
+												    <div class="layui-input-block">
+												      	<textarea name="selfRating" placeholder="稿件自评(必填)" required lay-verify="required" class="layui-textarea"></textarea>
+												    </div>
+												</div>
+											</div>
+											<div id="manu-title7" class="iterm">
+												<div class="text-title">相关参考文献</div>
+												<div class="layui-form-item">
+												    <label class="layui-form-label">参考文献</label>
+												    <div class="layui-input-block">
+												    	<textarea name="reference" placeholder="请输入参考文献(必填)" required lay-verify="required" class="layui-textarea"></textarea>
+												    </div>
+												</div>
+											</div>
+											<div id="manu-title8" class="iterm">
+												<div class="text-title">稿件作者信息</div>
+												<div id="authorMsg">
+													<div class="layui-form-item">
+													    <label class="layui-form-label author-tl">第1作者个人信息</label>
+													    <div class="layui-input-inline author">
+													    	<input type="checkbox" name="author1" title="通信作者" lay-skin="primary"><span>通信作者</span>
+													    </div>
+													</div>
+													<table class="layui-table author-msg" lay-skin="row">
+													  	<colgroup>
+														    <col >
+														    <col >
+														    <col>
+														    <col>
+														    <col>
+														    <col >
+													  	</colgroup>
+													  	<thead>
+														    <tr>
+														      	<th>姓名</th><th>性别</th><th>职业</th>
+														      	<th>职称</th><th>最高学历</th><th>邮箱地址</th>
+														    </tr> 
+													  	</thead>
+													  	<tbody>
+														    <tr>
+														      	<td>人生</td><td>男</td><td>经纪人</td>
+														      	<td>高级</td><td>小学</td><td>12345678901@163.com</td>
+														    </tr>
+														    <tr>
+														      	<td colspan="6">
+														      		<div class="layui-form-item adress">
+																	    <label class="layui-form-label">工作单位</label>
+																	    <div class="layui-input-block ">
+																	      	<input type="text" name="company1" value="北京皇粮胡同18号后海花园" autocomplete="off" class="layui-input">
+																	    </div>
+																	</div>
+														      	</td>
+														    </tr>
+														    <tr>
+														      	<td colspan="6">
+														      		<textarea name="contribut1" placeholder="请输入稿件贡献度"  class="layui-textarea"></textarea>
+														      	</td>
+														    </tr>
+													  	</tbody>
+													</table>
+												</div>
+												<div class="addAuthor">
+													<a class="addList"  msgtitle="添加作者" psit="authorMsg">+添加作者</a>
+													<div class="">
+														*通信作者往往指课题的总负责人，通信作者是课题负责人，承担课题的经费，设计，文章的书写和把关。他也是文章和研究材料的联系人。最重要的是，他担负着文章可靠性的责任。他要负责与编辑部的一切通信联系和接受读者的咨询等。实际上如果从知识产权上来说，研究成果算是通信作者的。
+													</div>
+												</div>
+											</div>
+											<div id="manu-title9" class="iterm">
+												<div class="text-title">评审人信息</div>
+												<div id="reviewers">
+													<div class="layui-form-item ">
+														<div class="reviewers layui-clear">
+															<label class="layui-form-label author-tl">建议评审人</label>
+													    	<a class="right addList" msgtitle="建议评审人添加" psit="reviewers">添加</a>
+														</div>
+													</div>
+													<table class="layui-table author-msg" lay-skin="row">
+													  	<colgroup>
+														    <col >
+														    <col >
+														    <col>
+														    <col>
+														    <col>
+														    <col >
+													  	</colgroup>
+													  	<thead>
+														    <tr>
+														      	<th>姓名</th><th>性别</th><th>职业</th>
+														      	<th>职称</th><th>最高学历</th><th>邮箱地址</th>
+														    </tr> 
+													  	</thead>
+													  	<tbody>
+														    <tr>
+														      	<td>人生</td><td>男</td><td>经纪人</td>
+														      	<td>高级</td><td>小学</td><td>12345678901@163.com</td>
+														    </tr>
+														    <tr>
+														      	<td colspan="6">
+														      		<div class="layui-form-item adress">
+																	    <label class="layui-form-label">工作单位</label>
+																	    <div class="layui-input-block ">
+																	      	<input type="text" name="company1" value="北京皇粮胡同18号后海花园" autocomplete="off" class="layui-input">
+																	    </div>
+																	</div>
+														      	</td>
+														    </tr>
+														    <tr>
+														      	<td colspan="6">
+														      		<textarea name="contribut1" placeholder="请输入稿件贡献度"  class="layui-textarea"></textarea>
+														      	</td>
+														    </tr>
+													  	</tbody>
+													</table>
+												</div>
+												<div id="unreviewers">
+													<div class="layui-form-item ">
+														<div class="reviewers layui-clear">
+															<label class="layui-form-label author-tl">反对评审人</label>
+													    	<a class="right addList" msgtitle="反对评审人添加" psit="unreviewers">添加</a>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="manu-title10" class="iterm">
+												<div class="text-title">上传文件</div>
+												<div id="fund">
+													<div class="layui-form-item">
+													    <label class="layui-form-label">学科分类</label>
+													    <div class="layui-input-block">
+														    <select name="fileSubject" lay-verify="required">
+														        <option value="">请选择(必填)</option>
+														        <option value="0">马克思主义</option>
+														        <option value="1">哲学类</option>
+														        <option value="2">宗教类</option>
+														        <option value="3">心理学类</option>
+														        <option value="4">社会科学总论</option>
+														        <option value="4">社会学社会工作与社会保障类</option>
+														        <option value="4">政治学与公共管理类</option>
+														        <option value="4">法学类</option>
+														        <option value="4">民族问题研究</option>
+														        <option value="4">国际问题类</option>
+														        <option value="4">中共党史党建</option>
+														        <option value="4">经济管理类</option>
+														        <option value="4">统计学</option>
+														        <option value="4">人口学</option>
+														        <option value="4">文化传媒类</option>
+														        <option value="4">教育类</option>
+														        <option value="4">信息及档案管理类</option>
+														        <option value="4">语言类</option>
+														        <option value="4">文学类</option>
+														        <option value="4">艺术类</option>
+														        <option value="4">历史地理类</option>
+														        <option value="4">考古类</option>
+														        <option value="4">其他</option>
+														    </select>
+													    </div>
+													</div>
+													<div class="layui-form-item">
+													    <label class="layui-form-label">文件描述</label>
+													    <div class="layui-input-block">
+													      	<textarea name="fileDesc" placeholder="请填写参考文献" class="layui-textarea"></textarea>
+													    </div>
+													</div>
+												</div>
+												<div class="addfund">+新加文件<input type="file" name="" lay-type="file" lay-title="请上传文件" class="layui-upload-file"> </div>
+												<table class="layui-table file-list" lay-skin="line">
+												  	<colgroup>
+													    <col ><col > <col><col><col>
+												  	</colgroup>
+												  	<thead>
+													    <tr>
+													      	<th>上传时间</th>
+													      	<th>文件类型</th>
+													      	<th>文件名称</th>
+													      	<th>文件大小</th>
+													      	<th>操作</th>
+													    </tr> 
+												  	</thead>
+												  	<tbody>
+													    <tr>
+													      	<td>2016-11-29</td>
+													      	<td>txt</td>
+													      	<td>人生就像是一场修行</td>
+													      	<td>3M</td>
+													      	<td><a>删除</a></td>
+													    </tr>
+													    <tr>
+													      	<td>2016-11-29</td>
+													      	<td>txt</td>
+													      	<td>人生就像是一场修行</td>
+													      	<td>3M</td>
+													      	<td><a>删除</a></td>
+													    </tr>
+												  	</tbody>
+												</table>
+											</div>
+											<div class="layui-form-item submit-btn">
+											    <div class="layui-input-block">
+											      <button class="layui-btn layui-btn-primary btn1" type="0" lay-submit lay-filter="formDemo">暂存</button>
+											      <button class="layui-btn btn2" type="1" lay-submit lay-filter="formDemo">提交</button>
+											    </div>
+											</div>
+										</form>
+							      	</td>
+							      	<td class="new-right" >
+							      		<ul class="manulist">
+							      			<li>
+							      				<div class="manu-title active">
+							      					<a href="#manu-title1">拟投学科</a><br>
+							      					<i></i>
+							      				</div>
+							      			</li>
+							      			<li>
+							      				<div class="manu-title ">
+							      					<a  href="#manu-title2">稿件标题</a><br>
+							      					<i></i>
+							      				</div>
+							      			</li>
+							      			<li>
+							      				<div class="manu-title ">
+							      					<a  href="#manu-title3">中英文关键词</a><br>
+							      					<i></i>
+							      				</div>
+							      			</li>
+							      			<li>
+							      				<div class="manu-title ">
+							      					<a  href="#manu-title4">中英文摘要</a><br>
+							      					<i></i>
+							      				</div>
+							      			</li>
+							      			<li>
+							      				<div class="manu-title ">
+							      					<a  href="#manu-title5">基金信息</a><br>
+							      					<i></i>
+							      				</div>
+							      			</li>
+							      			<li>
+							      				<div class="manu-title ">
+							      					<a  href="#manu-title7">相关参考文献</a><br>
+							      					<i></i>
+							      				</div>
+							      			</li>
+							      			<li>
+							      				<div class="manu-title ">
+							      					<a  href="#manu-title8">稿件作者信息</a><br>
+							      					<i></i>
+							      				</div>
+							      			</li>
+							      			<li>
+							      				<div class="manu-title ">
+							      					<a href="#manu-title10">上传文件</a><br>
+							      					<i></i>
+							      				</div>
+							      			</li>
+							      		</ul>
+							      	</td>
+							    </tr>  
+						  	</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="pop-mask" class="pop-mask">
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+				    <label class="layui-form-label">姓名</label>
+				    <div class="layui-input-block">
+				      	<input type="text" name="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">性别</label>
+				    <div class="layui-input-block">
+				      	<input type="radio" name="sex" title="男" lay-skin="primary" >
+				      	<input type="radio" name="sex" title="女" lay-skin="primary" >
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">邮箱</label>
+				    <div class="layui-input-block">
+				      	<input type="text" name="mail" required  lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">职业</label>
+				    <div class="layui-input-block">
+				      	<input type="text" name="occupation" required  lay-verify="required" placeholder="请输入职业" autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">职称</label>
+				     <div class="layui-input-block">
+					    <select name="academicTitle" lay-verify="required">
+					        <option value="">请选择(必填)</option>
+					        <option value="0">中级</option>
+					        <option value="1">副高级</option>
+					        <option value="2">高级</option>
+					        <option value="3">其他</option>
+					    </select>
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">最高学历</label>
+				     <div class="layui-input-block">
+					    <select name="maxEducation" lay-verify="required">
+					        <option value="">请选择(必填)</option>
+					        <option value="0">本科</option>
+					        <option value="1">硕士</option>
+					        <option value="2">博士</option>
+					        <option value="2">博士后</option>
+					        <option value="3">其他</option>
+					    </select>
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">工作单位</label>
+				    <div class="layui-input-block">
+				      	<input type="text" name="workUnit" required  lay-verify="required" placeholder="请输入工作单位" autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">原因</label>
+				    <div class="layui-input-block">
+				    	<textarea name="reason" placeholder="请输入原因" required lay-verify="required" class="layui-textarea"></textarea>
+				    </div>
+				</div>
+				<div class="layui-form-item submit-btn">
+				    <div class="layui-input-block">
+				      <button class="layui-btn layui-btn-primary btn1">取消</button>
+				      <button class="layui-btn btn2" lay-submit lay-filter="add">添加</button>
+				    </div>
+				</div>
+			</form>
+		</div>
+		<!--暂存 弹窗-->
+		<div id="temporary" class="temporary">
+			<img src="imgs/ok.png"/>
+			<p class="tiptext">暂存成功</p>
+			<div class="btnlist">
+				<a class="returnlist">返回列表</a><a class="continu">继续修改</a>
+			</div>
+		</div>
+		<!--离开页面 弹窗-->
+		<div id="temporary2" class="temporary">
+			<img src="imgs/warn.png"/>
+			<p class="tiptext">你输入的数据暂未保存，请问是否离开本页面</p>
+			<div class="btnlist">
+				<a class="goout">离开页面</a><a class="continu">暂不离开</a>
+			</div>
+		</div>
+	</body>
+	<script src="layui/layui.js"></script>
+	<script>
+		layui.use(['jquery','element', 'laypage', 'layer','form','laydate','upload'], function() {
+			var $ = layui.jquery,
+				laypage = layui.laypage,
+				layer = layui.layer,
+				laydate = layui.laydate,
+				form = layui.form(),
+				element = layui.element();
+			$('.lists li').bind('click',function(e){
+				var elem = e.target;
+				$('.lists li').removeClass('active');
+				$(elem).parent().addClass('active');
+				
+			});
+			
+			$('.manulist .manu-title a').bind('click',function(e){
+				var elem = e.target;
+				$('.manulist .manu-title').removeClass('active');
+				$(elem).parent().addClass('active');
+				console.log(e.target)
+			});
+			//添加基金
+			var fundNum = 1;
+			$('#manu-title5 .addfund').bind('click',function(){
+				
+				++fundNum;
+				var htmls = '<div class="layui-form-item">'+
+							    '<label class="layui-form-label">基金号'+fundNum+'</label>'+
+							    '<div class="layui-input-block">'+
+							      	'<input type="text" name="fundNum1"  placeholder="请输入基金号" autocomplete="off" class="layui-input">'+
+							    '</div>'+
+							'</div>'+
+							'<div class="layui-form-item">'+
+							    '<label class="layui-form-label">基金名称'+fundNum+'</label>'+
+							    '<div class="layui-input-block">'+
+							      	'<input type="text" name="fundName1" placeholder="请输入基金名称" autocomplete="off" class="layui-input">'+
+							    '</div>'+
+							'</div>';
+				$("#fund").append(htmls);
+			});
+			
+			/*
+			form.on("select(Select)", function(data){
+				console.log(data.elem); //得到select原始DOM对象
+				console.log(data.value); //得到被选中的值
+			});
+			*/
+			//监听提交
+			form.on('submit(formDemo)', function(data){
+				var type = +$(data.elem).attr('type');
+				if(type==0){
+					$('#temporary .tiptext').text('暂存成功');
+					$('#temporary .continu').show();
+					tips();//暂存 提示
+				}else{
+					$('#temporary .tiptext').text('提交成功');
+					$('#temporary .continu').hide();
+					tips();//提交成功 提示
+				}
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			});
+			//监听添加
+			form.on('submit(add)', function(data){
+				//layer.closeAll();
+			    console.log(JSON.stringify(data.field));
+			    var num = $('#authorMsg>.layui-form-item').length+1;
+			    var htmls1 = '<div class="layui-form-item">'+
+							    '<label class="layui-form-label author-tl">第'+ num +'作者个人信息</label>'+
+							    '<div class="layui-input-block author">'+
+							    	'<input type="checkbox" name="author1" title="通信作者" lay-skin="primary"><span>通信作者</span>'+
+							    '</div>'+
+							'</div> ';
+			    var htmls2 = '<table class="layui-table author-msg" lay-skin="row">'+
+							  	'<colgroup><col ><col ><col><col><col><col ></colgroup>'+
+							  	'<thead><tr><th>姓名</th><th>性别</th><th>职业</th>'+
+								      	'<th>职称</th><th>最高学历</th><th>邮箱地址</th></tr>'+
+							  	'</thead>'+
+							  	'<tbody><tr>'+
+								      	'<td>'+data.field.name+'</td><td>'+data.field.sex+'</td><td>'+data.field.occupation+'</td>'+
+								      	'<td>'+data.field.academicTitle+'</td><td>'+data.field.maxEducation+'</td><td>'+data.field.mail+'</td>'+
+								    '</tr><tr><td colspan="6"><div class="layui-form-item adress">'+
+											    '<label class="layui-form-label">工作单位</label>'+
+											   ' <div class="layui-input-block ">'+
+											      	'<input type="text" name="company1" value="'+data.field.workUnit+'" autocomplete="off" class="layui-input">'+
+											    '</div></div></td>'+
+								    '</tr><tr><td colspan="6">'+
+								      		'<textarea name="contribut1" placeholder="请输入稿件贡献度"  class="layui-textarea" >'+data.field.reason+'</textarea>'+
+								    '</td></tr></tbody>'+
+							'</table>';
+				if(positId=='authorMsg'){
+					$('#'+positId).append(htmls1+htmls2);
+				}else{
+					$('#'+positId).append(htmls2);
+				}
+				layer.closeAll();
+			    return false;
+			});
+			//添加 弹窗
+			var titleText , positId ;
+			$('.iterm .addList').bind('click',function(e){
+				var elem = e.target;
+				titleText = $(elem).attr('msgtitle');
+				positId = $(elem).attr('psit');
+				var index = layer.open({
+				  	type: 1,
+				  	title: titleText,
+				  	area: ['700px','600px'],
+				  	content: $('#pop-mask')
+				});
+			});
+			//文件上传
+			layui.upload({
+				  url: '',
+				  method: 'post',
+				  unwrap: true ,
+				  success: function(res, input){
+				  	
+				  }
+			}); 
+			//暂存 提示
+			function tips(){
+				layer.open({
+					title :'提示',
+					type: 1,
+					area:  ['610px', '420px'],
+					content: $('#temporary')
+				});
+			}
+			$('.temporary .continu').bind('click',function(){
+				layer.closeAll();
+			});
+		})
+	</script>
+
+</html>

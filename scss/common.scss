@@ -1,0 +1,768 @@
+$bgcolor: #01b0f1;
+
+@mixin boxsizing($value:border-box){
+    box-sizing: $value;
+    -moz-box-sizing: $value; 
+    -webkit-box-sizing: $value; 
+}
+
+@mixin border($border-name:border,$color:#fff) {
+    #{$border-name}: 1px solid $color;
+}
+
+@mixin position($weizhi1:bottom,$value1:0px,$weizhi2:left,$value2:0px,$zindex:5) {
+    position: absolute;
+    #{$weizhi1}: $value1;
+    #{$weizhi2}: $value2;
+    z-index: $zindex;
+}
+/**边框阴影*/
+@mixin box-shadow($shadow...) {
+    -webkit-box-shadow:$shadow;
+    -moz-box-shadow:$shadow;
+    -o-box-shadow:$shadow;
+    box-shadow:$shadow;
+}
+/**超出显示省略号*/
+@mixin ellips() {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin webkit-font-size() {
+    -webkit-transform: scale(1.7) translate(25px, 0);
+    -moz-transform: scale(1.7) translate(25px, 0);
+    -ms-transform: scale(1.7) translate(25px, 0);
+    -o-transform: scale(1.7) translate(25px, 0);
+    transform: scale(1.7) translate(25px, 0);
+}
+/*table 超出显示省略号*/
+@mixin table-ellips(){
+    .layui-table{
+        table-layout: fixed;
+        tr{
+            td{
+                text-overflow: ellipsis;
+                -moz-text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+html,
+body {
+    background: #fff;
+    font-family: "Microsoft Yahei", "微软雅黑", "宋体", arial;
+    color: #333;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+h5 {
+    font-size: 22px;
+    font-weight: 400;
+    color: #333;  
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.page {
+    text-align: center;   
+}
+/*左侧导航*/
+.nav-list{
+    @include boxsizing;
+    background: #424b6a;
+    width: 230px;
+    height: 100%;
+    padding-top: 40px;
+    color: #a1a5b5;
+    overflow: hidden;
+    .logo{
+        width: 100%;
+        height: 143px;
+        img{
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    .title{
+        font-size: 12px;
+        padding-left: 50px;
+    }
+    .lists{
+        padding: 10px 0px;
+        li{
+            position: relative;  
+                  
+            a{
+                display: block;
+                padding: 10px 0px 10px 50px;   
+                color: #FFF;
+                font-size: 14px; 
+                &:hover{
+                    color: #00bbff;
+                    cursor: pointer;  
+                }
+            }
+            .layui-icon{
+                display: none;
+                @include position(top,12px,right,10px,5);
+            }
+            .hover-border{
+                display: none;
+                @include position(top,6px,left,0px,5); 
+                width: 4px;
+                height: 30px;
+                background: #00bbff;
+            }
+        }
+        .active{
+            .hover-border,.layui-icon{
+                display: block;
+            }
+            .layui-icon{
+                top: 20px\9;
+            }
+            .hover-border{
+                top: 12px\9;
+            }
+            a{
+                font-weight: 600;
+                font-size: 24px\9;
+                //transition: all .1s;
+                //-webkit-transition: all .3s;
+                @include webkit-font-size;
+                &:hover{
+                     color: #FFF;
+                }
+            }
+        }
+    }
+}
+/*右侧内容*/
+.nav-content{
+    background: #f5f6fa;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .nav-header{
+        background: #fff;
+        height: 60px; 
+        line-height: 60px;
+        padding: 0 40px;
+        .layui-form{
+            .layui-form-item{
+                display: inline-block;
+                width: 100px;
+                margin: 0px;
+                select,input{
+                    color: #666;
+                    border: none;
+                    border-width: 0px;
+                }
+                .layui-form-select dl dd.layui-this{
+                    background: #3598db;
+                }
+            }
+        }
+        .rg{
+            .rg-icon{
+                position: relative;
+                display: inline-block;
+                width: 70px;
+                height: 25px;
+                a{
+                    cursor: pointer;
+                    width: 25px;
+                    height: 25px;
+                }
+                .notice,.noticed{
+                    @include position(top,6px,left,0,5);
+                    background: url(../imgs/noticed.png) no-repeat;   
+                }
+                .noticed{
+                    background: url(../imgs/notice.png) no-repeat; 
+                }
+                .personal{
+                    @include position(top,7px,right,0,5);
+                    background: url(../imgs/personal.png) no-repeat;  
+                }
+            }
+            .login-msg{
+                display: inline-block;
+                height: 60px;
+                line-height: 60px;
+                a{
+                    color: #666;
+                    padding: 0px 8px;
+                    &:hover{
+                        cursor: pointer;
+                        color: #3598db;
+                    }
+                }
+            }
+        }
+       
+    }
+    .main{
+        background: #fff;
+        margin: 20px 40px;
+        .title{
+            color: #666;
+            font-size: 18px;
+            font-weight: 600;
+            height: 60px;
+            line-height: 60px;
+            padding-left: 30px;
+            @include border(border-bottom,#e2e2e2);
+            button{
+                background: #01b0f1;
+                color: #fff;
+                font-weight: 200;
+                margin: 13px 30px 0px 0px;  
+            }
+            .btn3{
+                color: #666;
+                background: #e5e5e5;
+            }
+        }
+        .main-content{
+            padding: 40px 30px 20px 30px;
+            /**新建稿件**/
+            .new-manuscript{
+                .layui-table{  
+                    margin: 0;
+                    border: none; 
+                    td{
+                        padding: 0;
+                        vertical-align: top!important;
+                        .layui-form{
+                            
+                            .iterm{
+                                color: #666;
+                                padding-bottom: 40px;
+                                .text-title{
+                                    color: #666;
+                                    font-size: 18px;
+                                    font-weight: 600;
+                                    padding-bottom: 30px;
+                                }
+                                .layui-form-item {
+                                    padding-right: 15px;
+                                    .layui-form-label{
+                                        padding:9px 0;
+                                        padding-right: 12px;
+                                        text-align: left;
+                                    }
+                                    .layui-input-block{
+                                        max-width: 490px;
+                                    }
+                                    .layui-form-select dl dd.layui-this{
+                                        background: #3598db;
+                                    }
+                                    .author-tl{
+                                        width: auto;
+                                    }
+                                    .author{
+                                        position: relative;
+                                        display: inline-block;
+                                        margin-left: 80px;
+                                        width: 20px;
+                                        height: 38px ;
+                                        input[type=checkbox]{
+                                            display: block;
+                                            margin-top: 10px;
+                                            width: 16px;
+                                            height: 16px;
+                                        }
+                                        .layui-form-checkbox{
+                                            display: none;
+                                        }
+                                        span{
+                                            @include position(top,8px,left,25px,2);
+                                            width: 80px;
+                                        }
+                                    }
+                                    .text{
+                                        color: #666;
+                                        font-size: 14px;
+                                    }
+                                }
+                                .addfund{
+                                    padding-left: 107px;
+                                    color: #00b0f0;
+                                    font-size: 14px;
+                                    cursor: pointer;
+                                    position: relative;
+                                    input{
+                                        @include position(top,0,left,0,8);
+                                    }
+                                }
+                                .author-msg{
+                                    max-width: 600px;
+                                    margin-bottom: 10px;
+                                    border: 1px solid #e2e2e2;
+                                    td,th{
+                                        text-align: center;
+                                        vertical-align: middle!important;
+                                        border: none;
+                                    }
+                                    tr{
+                                        @include border(border-bottom,#e2e2e2);
+                                        height: 40px;
+                                        .adress{
+                                            margin-bottom: 0px;
+                                            label{
+                                               padding-left: 15px; 
+                                            }
+                                            input{
+                                                border: none;
+                                                color: #333;
+                                            }
+                                        }
+                                        textarea{
+                                            color: #333;
+                                            border: none;
+                                            padding-left: 15px;
+                                        }
+                                    }
+                                }
+                                .addAuthor{
+                                    max-width: 600px;
+                                    a{
+                                        display: inline-block;
+                                        color: #00b0f0;
+                                        font-size: 14px;
+                                        cursor: pointer;
+                                        padding-bottom: 15px;
+                                    }
+                                    >div{
+                                        padding: 10px;
+                                        line-height: 26px;
+                                        background: #f9f9f9;
+                                    }
+                                }
+                                .reviewers{
+                                    box-sizing: border-box;
+                                    background: #f9f9f9;
+                                    max-width: 600px;
+                                    padding: 0px 18px;
+                                    a{
+                                        height: 38px;
+                                        line-height: 38px;
+                                        color: #00b0f0;
+                                        font-size: 14px;
+                                        cursor: pointer;
+                                    }
+                                }
+                                .file-list{
+                                    margin-top: 15px;
+                                    max-width: 600px;
+                                    border: 1px solid #e2e2e2;
+                                    td,th{
+                                        text-align: center;
+                                        vertical-align: middle!important;
+                                        border: none;
+                                    }
+                                    tr{
+                                       @include border(border-bottom,#e2e2e2);
+                                        height: 40px; 
+                                        td{
+                                            a:hover{
+                                               cursor: pointer;
+                                               color: #00b0f0; 
+                                            }
+                                        }
+                                    }
+                                }
+                            } 
+                            .submit-btn{
+                                max-width: 600px;
+                                text-align: right;
+                                button{
+                                    width: 100px;
+                                }
+                                .btn1{
+                                    margin-right: 20px;
+                                    &:hover{
+                                        border-color: #00b0f0;
+                                    }
+                                }
+                                .btn2{
+                                    background: #00b0f0;
+                                    margin-right: 15px;
+                                }
+                            }
+                            .layui-form-checkbox[lay-skin=primary]:hover i{
+                                border-color: $bgcolor;
+                            }
+                            .layui-form-checked[lay-skin=primary] i{
+                                border-color: $bgcolor;
+                                background-color: $bgcolor;
+                            }
+                        }
+                    } 
+                    tr:hover  {
+                        background: #fff;
+                    } 
+                    .new-right{
+                        border-right: none;
+                        .manulist{
+                            padding-top: 240px;
+                            li{
+                                padding: 20px 0px;
+                                text-align: center;
+                                .manu-title{
+                                    a{
+                                        color: #ccc;
+                                        font-size: 18px;
+                                        cursor: pointer;   
+                                    }
+                                    i{
+                                        display: inline-block;
+                                        width: 25px;
+                                        height: 25px;
+                                        margin-top: 20px;
+                                        background: url(../imgs/spot1.png) no-repeat;
+                                    }
+                                }
+                                .active{
+                                    a{
+                                        color: $bgcolor;
+                                    }
+                                    i{
+                                       background: url(../imgs/spot2.png) no-repeat; 
+                                    }
+                                }
+                            }
+                        } 
+                    }    
+                }
+                
+            }
+            /**稿件详情**/
+            .manuscript-det {
+                color: #666;
+                .iterm{
+                    max-width: 1000px;
+                    padding-bottom: 20px;
+                    .iterm-title{
+                        font-size: 18px;
+                        font-weight: 600;
+                        padding-bottom: 20px;
+                        >a{
+                            font-size: 14px;
+                            font-weight: normal;
+                            color: $bgcolor; 
+                            cursor: pointer;
+                            line-height: 24px;
+                        }
+                    }
+                    .layui-table{
+                        td,th{
+                            text-align: center;
+                            vertical-align: middle!important;
+                            border: none;
+                            a{
+                                color: #666;
+                                &:hover{
+                                    cursor: pointer;
+                                    color: $bgcolor;
+                                }
+                            }
+                        }  
+                    }
+                    .detail{
+                        border: none;
+                        td,th{
+                            text-align: left;
+                         }
+                    }
+                }
+                
+            } 
+            /**稿件状态记录**/
+            .status-record{
+                max-width: 1000px;
+                color: #666;
+                .status-img{
+                    overflow-x: hidden;
+                    img{
+                        display: block;
+                        margin: 0 auto;
+                        border: none;
+                        width: 700px;
+                    }   
+                }
+                .status-text{
+                    width: 802px;
+                    font-size: 0;
+                    padding-bottom: 40px;
+                    overflow-x: hidden;
+                    margin: 0 auto;
+                    li{
+                        width: 145px;
+                        height: 50px;
+                        color: #999;
+                        font-size: 14px;
+                        padding-top: 20px;
+                        text-align: center;
+                        p{
+                            display: none;
+                            padding-top: 10px;
+                        }
+                    }
+                    .tl1{
+                        width: 145px;
+                    }
+                    .tl2{
+                        width: 178px;
+                    }
+                    .tl4{
+                        width: 188px;
+                    }
+                    .active{
+                        color: #666;
+                        p{
+                            display: block;
+                        }
+                    }
+                }
+                .record-title{
+                    background: #f1f1f1;
+                    height: 40px;
+                    line-height: 40px;
+                    padding: 0px 18px;
+                    .handle{
+                        a,span{
+                           color: #666;
+                           padding: 0px 10px; 
+                           &:hover{
+                               cursor: pointer;
+                               color: $bgcolor;  
+                           }
+                        }
+                        span{
+                            padding-right: 20px;
+                        }
+                        .down{
+                            background: url(../imgs/arrow-down.png) no-repeat 100% 5px;
+                        }
+                        .up{
+                            background: url(../imgs/arrow-up.png) no-repeat 100% 5px;
+                        }
+                    }
+                }
+                .interval{
+                    height: 10px;
+                }
+                .record-list{
+                    display: none;
+                    .layui-table{
+                        margin-bottom: 0px;
+                        td,th{
+                            text-align: center;
+                            vertical-align: middle!important;
+                            a{
+                                color: #666;
+                                &:hover{
+                                    cursor: pointer;
+                                    color: $bgcolor;
+                                }
+                            }
+                        }
+                    }
+                }
+                .edit-opinion{
+                    display: none;
+                    padding: 20px;
+                    p{
+                        line-height: 26px;
+                    }
+                }
+            }
+            /**未完成稿件**/
+            .unfinish{
+                .layui-form{
+                    .layui-form-item{
+                        color: #666;
+                        .layui-form-label{
+                            width: 95px;
+                            padding-left: 0px;
+                            text-align: left;
+                        }
+                        .layui-input-block{
+                            width: 75%;
+                        }
+                        .layui-input-inline{
+                            width: 65%;
+                            margin-right: 0;
+                        }
+                        .layui-word-aux{
+                            background: #3598db;
+                            width: 10%;
+                            color: #fff;
+                            text-align: center;
+                            font-size: 14px;
+                            cursor: pointer;
+                            @include border(border,#3598db);
+                        }
+                        .layui-form-select dl dd.layui-this{
+                            background: #3598db;
+                        }
+                    }
+                }
+                //@include table-ellips;
+                .layui-table{
+                    margin-top: 25px;
+                    td,th{
+                        color: #666; 
+                        text-align: center;
+                    }
+                    thead{
+                        th{
+                           
+                           div{
+                               position: relative;
+                               display: inline-block;
+                               i{
+                                    display: inline-block;
+                                    @include position(top,0px,right,-25px,5);
+                                    width: 20px;
+                                    height: 20px;
+                                    cursor: pointer;
+                                }
+                                .down{
+                                    background: url(../imgs/down.png) no-repeat 0px 0px;
+                                }
+                                .up{
+                                    background: url(../imgs/up.png) no-repeat;
+                                }
+                           }
+                            
+                        }
+                    }
+                    tbody{
+                        td{
+                            color: #666;
+                            span{
+                                padding: 0px 8px;
+                            }
+                            a{
+                                color: #666;  
+                                &:hover{
+                                    cursor: pointer;
+                                    color: #3598db;
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+            /**课题列表***/
+            .topic{
+                .layui-table{
+                    margin: 0;
+                }
+                .release{
+                    color: #666;
+                    label{
+                        text-align: left;
+                        padding-left: 0;
+                    }
+                    .layui-form-item {
+                        max-width: 490px;
+                    }
+                    .submit-btn {
+                        text-align: right;
+                        .layui-btn{
+                            width: 100px;
+                        }
+                        .btn1:hover{
+                            border-color: $bgcolor;
+                        }
+                        .btn2{
+                            background: $bgcolor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.pop-mask{
+    display: none;
+    width: 700px;
+    .layui-form{
+        color: #666;
+        .layui-form-item{
+            margin-top: 15px;
+            .layui-form-label{
+                padding:9px 10px 9px 20px;
+                text-align: left;
+            }
+            .layui-input-block{
+                max-width: 490px;
+            }
+        }
+        .layui-form-radio i{
+            font-size: 19px;
+        }
+        .layui-form-radio i:hover,.layui-form-radioed i{
+            color: $bgcolor;
+        }
+        .submit-btn{
+            text-align: center;
+            button{
+                width: 100px;
+            }
+            .btn1:hover{
+                border-color: #00b0f0;   
+            }
+            .btn2{
+                background: #00b0f0;
+            }
+        }
+    }
+}
+.temporary{
+    display: none;
+    box-sizing: border-box;
+    width: 600px;
+    >img{
+        display: block;
+        margin: 30px auto;
+        border: none;
+    }
+    .tiptext{
+        color: #666;
+        font-size: 14px;
+        text-align: center;
+    }
+    .btnlist{
+        
+        margin-top: 50px;
+        text-align: center;
+        a{
+            cursor: pointer;
+            color: $bgcolor;
+            padding: 5px 10px;
+            @include border(border,$bgcolor);
+            margin: 0px 20px;
+        }
+    }
+}
