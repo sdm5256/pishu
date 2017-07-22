@@ -701,6 +701,35 @@ h5 {
                     }
                 }
             }
+            /**邀约作者投稿***/
+            .invitation{
+                color: #666;
+                .layui-form{
+                    .layui-form-item{
+                       .layui-form-label{
+                           width: 115px;
+                           padding-left: 0;
+                           text-align: left;
+                       }
+                       .layui-input-block{
+                           width: 490px;
+                           margin-left:130px;
+                       }
+                       .layui-input-inline{
+                           width: 400px;
+                           margin-right: 0;
+                       }
+                       .search{
+                           background: $bgcolor;
+                           color: #fff;
+                           width: 90px;
+                           cursor: pointer;
+                           text-align: center;
+                           @include border(border,$bgcolor);
+                       }
+                    }
+                }
+            }  
         }
     }
 }
