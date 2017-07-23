@@ -712,7 +712,7 @@ h5 {
                            text-align: left;
                        }
                        .layui-input-block{
-                           width: 490px;
+                           max-width: 490px;
                            margin-left:130px;
                        }
                        .layui-input-inline{
@@ -724,6 +724,7 @@ h5 {
                            color: #fff;
                            width: 90px;
                            cursor: pointer;
+                           font-size: 14px;
                            text-align: center;
                            @include border(border,$bgcolor);
                        }
@@ -817,6 +818,27 @@ h5 {
             padding: 5px 10px;
             @include border(border,$bgcolor);
             margin: 0px 20px;
+        }
+    }
+}
+/**邀约作者投稿---弹窗*/
+.mask-result{
+    display: none;
+    .layui-table{
+        margin-top: 5px;
+        td,th{
+            font-weight: 400;
+            color: #666; 
+            text-align: center;
+        }
+        td{
+            a{
+                color: #666;
+                &:hover{
+                    cursor: pointer;
+                    color: $bgcolor;
+                }
+            }
         }
     }
 }

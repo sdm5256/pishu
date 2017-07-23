@@ -76,7 +76,7 @@
 							</div>
 						</form>
 						<div class="author-list">
-							<div class="lsttle">已添加作者 <a class="right">立即邀请</a></div>
+							<div class="lsttle">已添加作者 <a class="right invit">立即邀请</a></div>
 							<table class="layui-table" lay-skin="line">
 							  	<colgroup>
 								    <col width="80">
@@ -151,11 +151,121 @@
 							  	</tbody>
 							</table>
 						</div>
-						
-						
 					</div>
 				</div>
 			</div>
+		</div>
+		<!-- 搜索结果 弹窗 -->
+		<div id="mask-result" class="mask-result">
+			<table class="layui-table" lay-skin="line">
+			  	<colgroup>
+				    <col >
+				    <col>
+				    <col>
+				    <col>
+				    <col >
+			  	</colgroup>
+			  	<thead>
+				    <tr>
+				      	<th>姓名</th>
+				      	<th>性别</th>
+				      	<th>电子邮箱</th>
+				      	<th>工作单位</th>
+				      	<th>操作</th>
+				    </tr> 
+			  	</thead>
+			  	<tbody>
+				    <tr>
+				      	<td>人生</td>
+				      	<td>人</td>
+				      	<td>人生就像是一场修行</td>
+				      	<td>人生就像是一场修行</td>
+				      	<td><a>删除</a></td>
+				    </tr>
+				    <tr>
+				      	<td>人生</td>
+				      	<td>人</td>
+				      	<td>人生就像是一场修行</td>
+				      	<td>人生就像是一场修行</td>
+				      	<td><a>删除</a></td>
+				    </tr>
+				    <tr>
+				      	<td>人生</td>
+				      	<td>人</td>
+				      	<td>人生就像是一场修行</td>
+				      	<td>人生就像是一场修行</td>
+				      	<td><a>删除</a></td>
+				    </tr>
+
+			  	</tbody>
+			</table>
+		</div>
+		<!-- 邀请作者 弹窗 -->
+		<div id="pop-mask" class="pop-mask">
+			<form class="layui-form" action="">
+				<div class="layui-form-item">
+				    <label class="layui-form-label">姓名</label>
+				    <div class="layui-input-block">
+				      	<input type="text" name="name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">性别</label>
+				    <div class="layui-input-block">
+				      	<input type="radio" name="sex" title="男" lay-skin="primary" >
+				      	<input type="radio" name="sex" title="女" lay-skin="primary" >
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">邮箱</label>
+				    <div class="layui-input-block">
+				      	<input type="text" name="mail" required  lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">职业</label>
+				    <div class="layui-input-block">
+				      	<input type="text" name="occupation" required  lay-verify="required" placeholder="请输入职业" autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">职称</label>
+				     <div class="layui-input-block">
+					    <select name="academicTitle" lay-verify="required">
+					        <option value="">请选择(必填)</option>
+					        <option value="0">中级</option>
+					        <option value="1">副高级</option>
+					        <option value="2">高级</option>
+					        <option value="3">其他</option>
+					    </select>
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">最高学历</label>
+				     <div class="layui-input-block">
+					    <select name="maxEducation" lay-verify="required">
+					        <option value="">请选择(必填)</option>
+					        <option value="0">本科</option>
+					        <option value="1">硕士</option>
+					        <option value="2">博士</option>
+					        <option value="2">博士后</option>
+					        <option value="3">其他</option>
+					    </select>
+				    </div>
+				</div>
+				<div class="layui-form-item">
+				    <label class="layui-form-label">工作单位</label>
+				    <div class="layui-input-block">
+				      	<input type="text" name="workUnit" required  lay-verify="required" placeholder="请输入工作单位" autocomplete="off" class="layui-input">
+				    </div>
+				</div>
+				<div class="layui-form-item submit-btn">
+				    <div class="layui-input-block">
+				      <button type="button" class="layui-btn layui-btn-primary btn1">取消</button>
+				      <button class="layui-btn btn2" lay-submit lay-filter="add">添加</button>
+				    </div>
+				</div>
+			</form>
 		</div>
 	</body>
 	<script src="layui/layui.js"></script>
@@ -167,12 +277,14 @@
 				laydate = layui.laydate,
 				form = layui.form(),
 				element = layui.element();
+
 			$('.lists li').bind('click',function(e){
 				var elem = e.target;
 				$('.lists li').removeClass('active');
 				$(elem).parent().addClass('active');
 				
 			});
+			//全选
 			$('.layui-table thead th .all').bind('click',function(e){
 				var elem = e.target;
 				if(elem.checked){   
@@ -181,11 +293,38 @@
 					$('.layui-table tbody .iterm').prop("checked", false);
 			    } 
 			});
-			/*$('.layui-table tbody input[type=checkbox]').bind('click',function(e){
-				var elem = e.target;
-				var allNum = $('.layui-table tbody input[type=checkbox]').length;
-				
-			});*/
+			//搜索
+			$('.invitation .search').bind('click',function(){
+				searchResult();
+			});
+			function searchResult(){
+				layer.open({
+					title :'搜索结果',
+					type: 1,
+					area:  ['710px', '420px'],
+					content: $('#mask-result')
+				});
+			}
+			// 邀请作者
+			$('.author-list .invit').bind('click',function(){
+				layer.open({
+				  	type: 1,
+				  	title: '添加作者(未检测到作者)',
+				  	area: ['700px','500px'],
+				  	content: $('#pop-mask')
+				});
+			});
+			$('#pop-mask .btn1').bind('click',function(){
+				// 点击取消关闭弹窗
+				layer.closeAll();
+			});
+
+			form.on('submit(add)', function(data){
+				//添加作者的信息
+			    layer.msg(JSON.stringify(data.field));
+			    return false;
+			});
+			
 		})
 	</script>
 
