@@ -7,48 +7,52 @@
 		<title>皮书</title>
 		<link rel="stylesheet" href="../layui/css/layui.css" media="all">
 		<style type="text/css">
-			.mask{
+			.mask {
 				width: 600px;
 				height: 200px;
 			}
-			.tipimg{
+			
+			.tipimg {
 				margin: 30px 0;
 			}
-			.tipimg img{
+			
+			.tipimg img {
 				display: block;
 				margin: 0 auto;
 				border: none;
 			}
-			.tiptext{
+			
+			.tiptext {
 				text-align: center;
 			}
-			.btnlist a{
-				
-			}
+			
+			.btnlist a {}
 		</style>
 	</head>
 
 	<body>
 		<!--暂存 弹窗-->
-		<div class="mask">
-			<div class="tipimg">
-				<img src="../imgs/ok.png"/>
-			</div>
-			<p class="tiptext">暂存成功</p>
-			
-		</div>
+	
+		<input type="file" name="file1" lay-type="file" class="layui-upload-file">
+		
 	</body>
 	<script src="../layui/layui.js"></script>
 	<script>
-		layui.use(['jquery','element', 'laypage', 'layer','form','laydate'], function() {
+		layui.use(['jquery', 'element', 'laypage', 'layer', 'form', 'laydate','upload'], function() {
 			var $ = layui.jquery,
 				laypage = layui.laypage,
 				layer = layui.layer,
 				laydate = layui.laydate,
 				form = layui.form(),
 				element = layui.element();
-			
-			
+			layui.upload({
+			    url: '' //上传接口
+			    ,success: function(res){ //上传成功后的回调
+			      console.log(res)
+			    }
+			  });
+			  
+			  
 		})
 	</script>
 

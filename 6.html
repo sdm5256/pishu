@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>皮书</title>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/common.css" media="all">
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="nav-list left">
+			<div class="logo">
+				<img src="imgs/logo-text.png"/>
+			</div>
+			<div class="title">稿件管理</div>
+			<ul class="lists">
+				<li><a>新建稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li class="active"><a>未完成稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>稿件列表</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+			<div class="title">用户中心</div>
+			<ul class="lists">
+				<li><a>个人信息设置</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>修改登录密码</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>使用说明</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>消息中心</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+		</div>
+		<div class="nav-content">
+			<div class="nav-header">
+				<form class="layui-form" action="">
+					<div class="layui-form-item lf">
+						<select name="" >
+						  	<option value="020">作者</option>
+						  	<option value="010">编辑</option>
+						</select>
+					</div>
+					<div class="rg right">
+						<div class="rg-icon">
+							<!--有通知时添加   class= noticed -->
+							<a class="notice"></a><a class="personal"></a>
+						</div>
+						<div class="login-msg">
+							<a>作者作者</a><span>|</span><a>注销</a>
+						</div>
+					</div>
+				</form>   
+			</div>
+			<div class="main">
+				<div class="title">投稿声明</div>
+				<div class="main-content">
+					<div class="explain">
+						<div class="explain-title">尊敬的作者：</div>
+						<p>感谢您对社会科学文献出版社的信赖并向我社投稿，在此请您确认一下事项：</p>
+						<ul class="explain-delt">
+							<li>1.请确保您将要提交的文稿已经符合了登陆页面1-3条的要求，即您拥有稿件完整的知识产权和版权，不存在与任何第三方的版权问题</li>
+							<li>2.如果您的文稿拥有合作者，请确保您得到了您合作者的投稿授权；</li>
+							<li>3.请确保您的文稿所涉及的研究无相关利益冲突；</li>
+							<li>4.请确保您的文稿所列出的作者均对该文章做出了相应的贡献；请确保您文稿所涉及的研究的参与者均列入和该文稿（或您与他们以达成放弃协议）；</li>
+							<li>5.请确保您文稿的作者排序是按照对文章的贡献进行的，或您与合作者已达成排序协议；</li>
+							<li>6.请确保您的文稿不存在著作或科研过程的学术不端行为；</li>
+							<li>7.请确保您的文稿不涉及领土、种族或宗教的歧视或诋毁问题；</li>
+							<li>8.且确保您的文稿不涉及国家或相关机构的机密问题。</li>
+						</ul>
+						<div class="mg-top">祝您稿件出版顺利！<br>社会科学文献出版社 </div>
+						<div class="next">
+							<div class="yes">
+								<span><input type="checkbox" >我已阅读并同意以上投稿声明</span>
+							</div>
+							<button type="button" class="layui-btn layui-btn-disabled">下一步</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="layui/layui.js"></script>
+	<script>
+		layui.use(['jquery','element', 'laypage', 'layer','form','laydate'], function() {
+			var $ = layui.jquery,
+				laypage = layui.laypage,
+				layer = layui.layer,
+				laydate = layui.laydate,
+				form = layui.form(),
+				element = layui.element();
+
+			$('.lists li').bind('click',function(e){
+				var elem = e.target;
+				$('.lists li').removeClass('active');
+				$(elem).parent().addClass('active');
+				
+			});
+			$('.explain input[type=checkbox]').bind("click",function(e){
+				var elem = e.target;
+				if(elem.checked){
+					$('.explain .next button').removeClass('layui-btn-disabled');
+				}else{
+					$('.explain .next button').addClass('layui-btn-disabled');
+				}
+			});
+			
+		})
+	</script>
+
+</html>

@@ -152,12 +152,13 @@
 													      	<input type="text" name="fundNum1"  placeholder="请输入基金号" autocomplete="off" class="layui-input">
 													    </div>
 													</div>
-													<div class="layui-form-item">
+													<div class="layui-form-item fundname">
 													    <label class="layui-form-label">基金名称1</label>
 													    <div class="layui-input-block">
 													      	<input type="text" name="fundName1" placeholder="请输入基金名称" autocomplete="off" class="layui-input">
 													    </div>
 													</div>
+													
 												</div>
 												<div class="addfund">+新加基金来源</div>
 											</div>
@@ -299,33 +300,12 @@
 												<div class="text-title">上传文件</div>
 												<div id="fund">
 													<div class="layui-form-item">
-													    <label class="layui-form-label">学科分类</label>
+													    <label class="layui-form-label">文件类型</label>
 													    <div class="layui-input-block">
 														    <select name="fileSubject" lay-verify="required">
 														        <option value="">请选择(必填)</option>
-														        <option value="0">马克思主义</option>
-														        <option value="1">哲学类</option>
-														        <option value="2">宗教类</option>
-														        <option value="3">心理学类</option>
-														        <option value="4">社会科学总论</option>
-														        <option value="4">社会学社会工作与社会保障类</option>
-														        <option value="4">政治学与公共管理类</option>
-														        <option value="4">法学类</option>
-														        <option value="4">民族问题研究</option>
-														        <option value="4">国际问题类</option>
-														        <option value="4">中共党史党建</option>
-														        <option value="4">经济管理类</option>
-														        <option value="4">统计学</option>
-														        <option value="4">人口学</option>
-														        <option value="4">文化传媒类</option>
-														        <option value="4">教育类</option>
-														        <option value="4">信息及档案管理类</option>
-														        <option value="4">语言类</option>
-														        <option value="4">文学类</option>
-														        <option value="4">艺术类</option>
-														        <option value="4">历史地理类</option>
-														        <option value="4">考古类</option>
-														        <option value="4">其他</option>
+														        <option value="0">文稿</option>
+														        <option value="1">补充材料</option>
 														    </select>
 													    </div>
 													</div>
@@ -336,7 +316,7 @@
 													    </div>
 													</div>
 												</div>
-												<div class="addfund">+新加文件<input type="file" name="" lay-type="file" lay-title="请上传文件" class="layui-upload-file"> </div>
+												<div class="addfund"><input type="file" name="file1" lay-type="file" class="layui-upload-file" id="addfile" title="111"></div>
 												<table class="layui-table file-list" lay-skin="line">
 												  	<colgroup>
 													    <col ><col > <col><col><col>
@@ -493,10 +473,10 @@
 				      	<input type="text" name="workUnit" required  lay-verify="required" placeholder="请输入工作单位" autocomplete="off" class="layui-input">
 				    </div>
 				</div>
-				<div class="layui-form-item">
-				    <label class="layui-form-label">原因</label>
+				<div class="layui-form-item text-desc">
+				    <label class="layui-form-label">稿件贡献度</label>
 				    <div class="layui-input-block">
-				    	<textarea name="reason" placeholder="请输入原因" required lay-verify="required" class="layui-textarea"></textarea>
+				    	<textarea name="reason" placeholder="" required lay-verify="required" class="layui-textarea"></textarea>
 				    </div>
 				</div>
 				<div class="layui-form-item submit-btn">
@@ -549,9 +529,9 @@
 			//添加基金
 			var fundNum = 1;
 			$('#manu-title5 .addfund').bind('click',function(){
-				
+				$('#fund .del-fund').unbind();
 				++fundNum;
-				var htmls = '<div class="layui-form-item">'+
+				var htmls = '<div class="newfund"><div class="layui-form-item">'+
 							    '<label class="layui-form-label">基金号'+fundNum+'</label>'+
 							    '<div class="layui-input-block">'+
 							      	'<input type="text" name="fundNum1"  placeholder="请输入基金号" autocomplete="off" class="layui-input">'+
@@ -562,9 +542,18 @@
 							    '<div class="layui-input-block">'+
 							      	'<input type="text" name="fundName1" placeholder="请输入基金名称" autocomplete="off" class="layui-input">'+
 							    '</div>'+
+							'</div>'+
+							'<a class="del-fund" >删除</a>'+
 							'</div>';
 				$("#fund").append(htmls);
+				delFund();
 			});
+			function delFund(){
+				$('#fund .del-fund').bind('click',function(e){
+					var elem = e.target;
+					$(elem).parent().html('');
+				});
+			}
 			
 			/*
 			form.on("select(Select)", function(data){
@@ -612,7 +601,7 @@
 											      	'<input type="text" name="company1" value="'+data.field.workUnit+'" autocomplete="off" class="layui-input">'+
 											    '</div></div></td>'+
 								    '</tr><tr><td colspan="6">'+
-								      		'<textarea name="contribut1" placeholder="请输入稿件贡献度"  class="layui-textarea" >'+data.field.reason+'</textarea>'+
+								      		'<textarea name="contribut1" placeholder=""  class="layui-textarea" >'+data.field.reason+'</textarea>'+
 								    '</td></tr></tbody>'+
 							'</table>';
 				if(positId=='authorMsg'){
@@ -629,6 +618,13 @@
 				var elem = e.target;
 				titleText = $(elem).attr('msgtitle');
 				positId = $(elem).attr('psit');
+				if(positId=='authorMsg'){
+					$('#pop-mask .text-desc label').text('稿件贡献度');
+					$('#pop-mask textarea').attr('placeholder','稿件贡献度');
+				}else{
+					$('#pop-mask .text-desc label').text('原因');
+					$('#pop-mask textarea').attr('placeholder','原因');
+				}
 				var index = layer.open({
 				  	type: 1,
 				  	title: titleText,
@@ -638,13 +634,12 @@
 			});
 			//文件上传
 			layui.upload({
-				  url: '',
-				  method: 'post',
-				  unwrap: true ,
-				  success: function(res, input){
-				  	
-				  }
-			}); 
+			    url: '' //上传接口
+			    ,elem: '#addfile'
+			    ,success: function(res){ //上传成功后的回调
+			      console.log(res)
+			    }
+			  });
 			//暂存 提示
 			function tips(){
 				layer.open({
@@ -654,6 +649,16 @@
 					content: $('#temporary')
 				});
 			}
+			//离开页面   弹窗
+			function move(){
+				layer.open({
+					title :'提示',
+					type: 1,
+					area:  ['610px', '420px'],
+					content: $('#temporary2')
+				});
+			}
+			
 			$('.temporary .continu').bind('click',function(){
 				layer.closeAll();
 			});

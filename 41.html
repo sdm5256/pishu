@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>皮书</title>
+		<link rel="stylesheet" href="layui/css/layui.css" media="all">
+		<link rel="stylesheet" href="css/common.css" media="all">
+		<style type="text/css">
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="nav-list left">
+			<div class="logo">
+				<img src="imgs/logo-text.png"/>
+			</div>
+			<div class="title">稿件管理</div>
+			<ul class="lists">
+				<li><a>新建稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li class="active"><a>未完成稿件</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>稿件列表</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+			<div class="title">用户中心</div>
+			<ul class="lists">
+				<li><a>个人信息设置</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>修改登录密码</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>使用说明</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+				<li><a>消息中心</a><i class="hover-border"></i><i class="layui-icon" style="color: #fff">&#xe623;</i></li>
+			</ul>
+		</div>
+		<div class="nav-content">
+			<div class="nav-header">
+				<form class="layui-form" action="">
+					<div class="layui-form-item lf">
+						<select name="" >
+						  	<option value="020">作者</option>
+						  	<option value="010">编辑</option>
+						</select>
+					</div>
+					<div class="rg right">
+						<div class="rg-icon">
+							<!--有通知时添加   class= noticed -->
+							<a class="notice"></a><a class="personal"></a>
+						</div>
+						<div class="login-msg">
+							<a>作者作者</a><span>|</span><a>注销</a>
+						</div>
+					</div>
+				</form>   
+			</div>
+			<div class="main">
+				<div class="title">使用说明</div>
+				<div class="main-content">
+					<div class="explain">
+						<div class="explain-title">1.新建投稿</div>
+						<ul class="explain-delt">
+							<li>●请在网站左侧菜单点击【新建投稿】按钮，进入投稿操作，若个人信息未填写，请先完善个人信息。</li>
+							<li>●投稿进度：进入投稿页面后，在填写标题等环节上方会有状态栏显示所有环节的填写状态，填写完成后会提示√，若显示×，请检查填写信息是否符合规范、必填项是否填写。</li>
+							
+						</ul>
+						<div class="explain-title">2.查询稿件状态</div>
+						<ul class="explain-delt">
+							<li>●未完成稿件：新建投稿时选择“暂存”而未提交的稿件，请点击网站左侧【未完成稿件】菜单，查看未编辑完成的稿件，可对稿件进行再次编辑、提交，或删除。</li>
+							<li>●稿件状态：提交后的稿件，点击网站左侧【稿件列表】菜单进行查询。所有稿件状态会体现在列表中的“当前状态”下，或可点击“状态”查看稿件的所有历史状态。不同状态的稿件还可以通过稿件列表上方搜索的下拉项来筛选“当前状态”。</li>
+							<li>●关于撤稿操作：一经投稿，不可撤稿，故请您慎重投稿；如确实因稿件问题需要撤稿，请联系编辑部。</li>
+							<li>●其他：审稿周期大约为3个月，如超期或需加急处理请联系本刊编辑部。</li>
+							<li></li>
+						</ul>
+						<div class="explain-title">3.常见问题</div>
+						<ul class="explain-delt">
+							<li>●无法提交个人信息：请确保您使用的是IE8以上浏览器版本，若您使用的是360浏览器，请使用极速模式。</li>
+							<li>●无法提交投稿：请核对您填写的信息是否符合规范、必填项是否填写，尤其注意在填写作者信息时，多个作者中通信作者至少勾选一个。</li>
+							<li>●看不到自己投出去的稿件：您编辑后暂存的稿件会在“未完成稿件”列表中显示；您提交后的稿件会在“稿件列表”中显示，如果列表内无稿件，请通过切换“待处理稿件/所有稿件”来查看。</li>
+						</ul>
+						<div class="explain-title">4.技术支持</div>
+						<ul class="explain-delt">
+							<li>如果以上说明无法解决您的问题，请查看作者使用说明。</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="layui/layui.js"></script>
+	<script>
+		layui.use(['jquery','element', 'laypage', 'layer','form','laydate'], function() {
+			var $ = layui.jquery,
+				laypage = layui.laypage,
+				layer = layui.layer,
+				laydate = layui.laydate,
+				form = layui.form(),
+				element = layui.element();
+
+			$('.lists li').bind('click',function(e){
+				var elem = e.target;
+				$('.lists li').removeClass('active');
+				$(elem).parent().addClass('active');
+				
+			});
+			
+			
+		})
+	</script>
+
+</html>

@@ -76,8 +76,8 @@
 							</div>
 						</form>
 						<div class="author-list">
-							<div class="lsttle">已添加作者 <a class="right invit">立即邀请</a></div>
-							<table class="layui-table" lay-skin="line">
+							<div class="lsttle">已添加作者<button class="right invit dis" type="button" disabled="disabled">立即邀请</button> <!--<a class="right invit">立即邀请</a>--></div>
+							<table class="layui-table select" lay-skin="line">
 							  	<colgroup>
 								    <col width="80">
 								    <col >
@@ -126,27 +126,27 @@
 							  	</colgroup>
 							  	<thead>
 								    <tr>
+								    	<th>时间</th>
 								      	<th>姓名</th>
 								      	<th>性别</th>
 								      	<th>电子邮箱</th>
 								      	<th>工作单位</th>
-								      	<th>操作</th>
 								    </tr> 
 							  	</thead>
 							  	<tbody>
 								    <tr>
-								      	<td>2016-11-29</td>
+								    	<td>2016-11-29</td>
+								      	<td>人生</td>
 								      	<td>人生就像是一场修行</td>
 								      	<td>人生就像是一场修行</td>
 								      	<td>人生就像是一场修行</td>
-								      	<td><a>删除</a></td>
 								    </tr>
 								    <tr>
 								      	<td>2016-11-29</td>
+								      	<td>人生</td>
 								      	<td>人生就像是一场修行</td>
 								      	<td>人生就像是一场修行</td>
 								      	<td>人生就像是一场修行</td>
-								      	<td><a>删除</a></td>
 								    </tr>
 							  	</tbody>
 							</table>
@@ -167,40 +167,40 @@
 			  	</colgroup>
 			  	<thead>
 				    <tr>
+				    	<th>时间</th>
 				      	<th>姓名</th>
 				      	<th>性别</th>
 				      	<th>电子邮箱</th>
 				      	<th>工作单位</th>
-				      	<th>操作</th>
 				    </tr> 
 			  	</thead>
 			  	<tbody>
 				    <tr>
+				    	<td>2017-02-12</td>
 				      	<td>人生</td>
 				      	<td>人</td>
 				      	<td>人生就像是一场修行</td>
 				      	<td>人生就像是一场修行</td>
-				      	<td><a>删除</a></td>
 				    </tr>
 				    <tr>
+				    	<td>2017-02-12</td>
 				      	<td>人生</td>
 				      	<td>人</td>
 				      	<td>人生就像是一场修行</td>
 				      	<td>人生就像是一场修行</td>
-				      	<td><a>删除</a></td>
 				    </tr>
 				    <tr>
+				    	<td>2017-02-12</td>
 				      	<td>人生</td>
 				      	<td>人</td>
 				      	<td>人生就像是一场修行</td>
 				      	<td>人生就像是一场修行</td>
-				      	<td><a>删除</a></td>
 				    </tr>
 
 			  	</tbody>
 			</table>
 		</div>
-		<!-- 邀请作者 弹窗 -->
+		<!-- 搜索无作者  弹窗 -->
 		<div id="pop-mask" class="pop-mask">
 			<form class="layui-form" action="">
 				<div class="layui-form-item">
@@ -267,6 +267,20 @@
 				</div>
 			</form>
 		</div>
+		<!-- 邀请作者  弹窗 -->
+		<div id="mask-invit" class="mask-invit">
+			<div class="cont">			
+				<textarea class="layui-textarea">尊敬的（作者姓名）：
+社会科学文献出版社热诚欢迎您使用皮书在线投约稿平台进行投稿。为保证学术研究成果的原创性和严谨性，倡导良好的学术风气，请您阅读《投稿须知》（网址）。
+课题要求（编辑自行撰写）。
+为保证来稿格式及体例的规范，请您阅读《投稿格式说明》（网址）。
+再次感谢您在百忙之中阅读此信，希望与您合作愉快！（可由责编结合具体情况进行调整）
+				</textarea>
+			</div>
+			<div class="btn-list">
+				<a class="btn1">取消</a><a class="btn2">邀请</a>
+			</div>
+		</div>
 	</body>
 	<script src="layui/layui.js"></script>
 	<script>
@@ -285,34 +299,70 @@
 				
 			});
 			//全选
-			$('.layui-table thead th .all').bind('click',function(e){
+			$('.select thead th .all').bind('click',function(e){
 				var elem = e.target;
 				if(elem.checked){   
+					$('.author-list .invit').removeClass('dis');
+					$('.author-list .invit').removeAttr('disabled');
 			    	$('.layui-table tbody .iterm').prop("checked", true);  
-			    }else{   
+			    }else{ 
+			    	$('.author-list .invit').addClass('dis');
+					$('.author-list .invit').attr("disabled",'disabled');
 					$('.layui-table tbody .iterm').prop("checked", false);
+			    } 
+			});
+			$('.select tbody td input[type=checkbox]').bind('click',function(e){
+				var count = $('.select tbody td input:checked').length;
+				var elem = e.target;
+				if(count>0){   
+					$('.author-list .invit').removeClass('dis');
+					$('.author-list .invit').removeAttr('disabled'); 
+			    }else{ 
+			    	$('.author-list .invit').addClass('dis');
+					$('.author-list .invit').attr("disabled",'disabled');
 			    } 
 			});
 			//搜索
 			$('.invitation .search').bind('click',function(){
-				searchResult();
+				searchResult(0);
 			});
-			function searchResult(){
-				layer.open({
-					title :'搜索结果',
-					type: 1,
-					area:  ['710px', '420px'],
-					content: $('#mask-result')
-				});
+			function searchResult(value){
+				if(value==0){
+					layer.open({
+						title :'搜索结果',
+						type: 1,
+						area:  ['710px', '420px'],
+						content: $('#mask-result')
+					});
+				}else{
+					layer.open({
+					  	type: 1,
+					  	title: '添加作者(未检测到作者)',
+					  	area: ['700px','500px'],
+					  	content: $('#pop-mask')
+					});
+				}
 			}
+			$('.mask-result tbody td a').bind("click",function(e){
+				var elem = e.target;
+				$(elem).text('已添加');
+			});
 			// 邀请作者
 			$('.author-list .invit').bind('click',function(){
 				layer.open({
 				  	type: 1,
-				  	title: '添加作者(未检测到作者)',
+				  	title: '邀请作者',
 				  	area: ['700px','500px'],
-				  	content: $('#pop-mask')
+				  	content: $('#mask-invit')
 				});
+			});
+			$('#mask-invit .btn2').bind('click',function(){
+				// 点击邀请
+				layer.closeAll();
+			});
+			$('#mask-invit .btn1').bind('click',function(){
+				// 点击取消关闭弹窗
+				layer.closeAll();
 			});
 			$('#pop-mask .btn1').bind('click',function(){
 				// 点击取消关闭弹窗
